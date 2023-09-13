@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "537997958132",
+    "project_id": "anonchat-poc",
+    "storage_bucket": "anonchat-poc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537997958132:android:b427ac8fe45c8fa31837a1",
+        "android_client_info": {
+          "package_name": "com.example.poc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiBKpeZ3r8xb1y1Wc016Tk2NDLHWhHdZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
