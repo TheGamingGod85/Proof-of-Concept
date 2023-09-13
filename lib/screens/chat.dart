@@ -4,27 +4,18 @@ import 'package:chat_bubbles/chat_bubbles.dart';
 
 
 class ChatPage extends StatefulWidget {
-  const ChatPage({super.key});
-
   @override
-  State<ChatPage> createState() => _ChatPageState();
+  _ChatPageState createState() => _ChatPageState();
 }
 
 class _ChatPageState extends State<ChatPage> {
-
-  List<String> sentMessages = [
-  ];
-  List<String> receivedMessages = [
-    "Hey There!"
-  ];
+  List<Message> messages = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyColor.black,
       appBar: AppBar(
-        backgroundColor: MyColor.crimson,
-        title: Text("Anonymous User"),
+        title: Text('Chat App'),
       ),
       body: Padding(
         padding: EdgeInsets.only(top: 25),
@@ -35,11 +26,11 @@ class _ChatPageState extends State<ChatPage> {
                 children: <Widget>[
                   ListView.builder(
                     shrinkWrap: true,
-                    itemCount: sentMessages.length,
+                    itemCount: messages.length,
                     itemBuilder: (context, index) {
                       return BubbleNormal(
-                        text: sentMessages[index],
-                        isSender: true,
+                        text: messages[index].text,
+                        isSender: messages[index].isSender,
                         color: Color(0xFF1B97F3),
                         tail: true,
                         textStyle: TextStyle(
@@ -47,25 +38,8 @@ class _ChatPageState extends State<ChatPage> {
                           color: Colors.white,
                         ),
                       );
-                    }
+                    },
                   ),
-                  ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: receivedMessages.length,
-                      itemBuilder: (context, index) {
-                        return BubbleNormal(
-                          text: receivedMessages[index],
-                          isSender: false,
-                          color: Color(0xFF1B97F3),
-                          tail: true,
-                          textStyle: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                        );
-                      }
-                  ),
-
                   SizedBox(
                     height: 100,
                   )
@@ -77,13 +51,25 @@ class _ChatPageState extends State<ChatPage> {
               sendButtonColor: MyColor.crimson,
               onSend: (message) {
                 setState(() {
-                  sentMessages.add(message);
+                  messages.add(Message(text: message, isSender: true));
+                  // Simulate a reply from the other person
+                  messages.add(Message(
+                    text: 'This is a reply from the other person.',
+                    isSender: false,
+                  ));
                 });
               },
             ),
-          ]
+          ],
         ),
       ),
     );
   }
+}
+
+class Message {
+  final String text;
+  final bool isSender;
+
+  Message({required this.text, required this.isSender});
 }
