@@ -14,8 +14,10 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: MyColor.black,
       appBar: AppBar(
-        title: Text('Chat App'),
+        backgroundColor: MyColor.crimson,
+        title: Text("Anonymous User"),
       ),
       body: Padding(
         padding: EdgeInsets.only(top: 25),

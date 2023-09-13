@@ -4,9 +4,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:intro_screen_onboarding_flutter/intro_app.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:poc/screens/startchat.dart';
-import 'package:poc/utils/global.dart';
 import 'package:poc/widgets/theme.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({super.key});
