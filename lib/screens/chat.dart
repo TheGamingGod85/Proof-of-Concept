@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:poc/widgets/theme.dart';
 import 'package:chat_bubbles/chat_bubbles.dart';
@@ -9,6 +11,15 @@ class ChatPage extends StatefulWidget {
 
 class _ChatPageState extends State<ChatPage> {
   List<Message> messages = [];
+
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(hours: 2), () {
+      print("Going Back");
+      Navigator.pop(context);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

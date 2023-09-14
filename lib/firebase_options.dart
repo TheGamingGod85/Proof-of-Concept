@@ -50,6 +50,7 @@ class DefaultFirebaseOptions {
     projectId: 'anonchat-poc',
     authDomain: 'anonchat-poc.firebaseapp.com',
     storageBucket: 'anonchat-poc.appspot.com',
+    measurementId: 'G-WVTZZNFV3Y',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
