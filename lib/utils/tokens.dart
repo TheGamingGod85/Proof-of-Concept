@@ -15,23 +15,20 @@ class FCMTokenManager {
 
 class DeviceIDManager {
 
-  static String? uniqueDeviceId;
+  Future<String?> getDeviceId() async {
+    DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+    String? deviceId;
 
-  static Future<void> getUniqueDeviceId() async {
-    var deviceInfo = DeviceInfoPlugin();
-
-    if (Platform.isIOS) {
-      var iosDeviceInfo = await deviceInfo.iosInfo;
-      uniqueDeviceId =
-          '${iosDeviceInfo.name}:${iosDeviceInfo.identifierForVendor}';
-      //unique ID on iOS
-    } else if (Platform.isAndroid) {
-      var androidDeviceInfo = await deviceInfo.androidInfo;
-      uniqueDeviceId = '${androidDeviceInfo.model}:${androidDeviceInfo.id}';
-      // unique ID on Android
+    if (Platform.isAndroid) {
+      AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+      deviceId = androidInfo.id; // Unique Android device ID
+    } else if (Platform.isIOS) {
+      IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
+      deviceId = iosInfo.identifierForVendor; // Unique iOS device ID
     }
 
-    // return uniqueDeviceId;
+    print("Device ID: $deviceId");
+    return deviceId;
   }
 }
 

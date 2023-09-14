@@ -11,7 +11,7 @@ void main() async {
   );
   await FCMTokenManager.initializeFCMToken();
   GEOLocationManager().getGEOLocation();
-  await DeviceIDManager.getUniqueDeviceId();
+  await DeviceIDManager().getDeviceId();
   runApp(const MyApp());
 }
 

@@ -49,7 +49,7 @@ class _StartChatState extends State<StartChat> {
                       ),
                       onPressed: () {
                         print(FCMTokenManager.fcmToken);
-                        print(DeviceIDManager.uniqueDeviceId);
+                        print(DeviceIDManager().getDeviceId());
                         GEOLocationManager().getGEOLocation();
                         Navigator.push(context, PageTransition(child: ChatPage(), type: PageTransitionType.rightToLeftWithFade, duration: 500.ms),);
                       },
