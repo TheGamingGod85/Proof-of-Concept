@@ -55,7 +55,7 @@ class _ChatPageState extends State<ChatPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: MessageBar(
                 messageBarColor: MyColor.black,
                 sendButtonColor: MyColor.crimson,
