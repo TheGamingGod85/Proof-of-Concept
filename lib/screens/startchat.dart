@@ -51,7 +51,7 @@ class _StartChatState extends State<StartChat> {
                         print(FCMTokenManager.fcmToken);
                         print(DeviceIDManager().getDeviceId());
                         GEOLocationManager().getGEOLocation();
-                        Navigator.push(context, PageTransition(child: ChatPage(), type: PageTransitionType.rightToLeftWithFade, duration: 500.ms),);
+                        Navigator.push(context, PageTransition(child: ChatPage(), type: PageTransitionType.fade, duration: 500.ms),);
                       },
                       child: Text("Start Chatting", style: TextStyle(fontSize: 24),)
                   ),
