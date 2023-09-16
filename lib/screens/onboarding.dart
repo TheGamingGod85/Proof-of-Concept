@@ -53,7 +53,7 @@ class _OnboardingState extends State<Onboarding> {
   Widget build(BuildContext context) {
     return IntroScreenOnboarding(
       introductionList: list,
-      foregroundColor: MyColor.crimson,
+      foregroundColor: MyColor.indigo,
       backgroudColor: MyColor.black,
       onTapSkipButton: () {
         Navigator.pushReplacement(

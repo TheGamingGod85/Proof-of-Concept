@@ -35,7 +35,7 @@ class _SplashscreenState extends State<Splashscreen> {
             Container(
               height: 300,
               width: 300,
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: MyColor.crimson),
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: MyColor.indigo),
               child: Center(
                 child: Text(
                   "POC",

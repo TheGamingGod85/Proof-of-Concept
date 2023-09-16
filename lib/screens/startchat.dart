@@ -19,7 +19,7 @@ class _StartChatState extends State<StartChat> {
     return Scaffold(
       backgroundColor: MyColor.black,
       appBar: AppBar(
-        backgroundColor: MyColor.crimson,
+        backgroundColor: MyColor.indigo,
         title: Text("Proof of Concept"),
         centerTitle: true,
       ),
@@ -31,7 +31,7 @@ class _StartChatState extends State<StartChat> {
                 children: [
                   Icon(
                     Icons.message,
-                    color: MyColor.crimson,
+                    color: MyColor.indigo,
                     size: 150,
                   ),
                   Container(
@@ -44,7 +44,7 @@ class _StartChatState extends State<StartChat> {
                   ),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: MyColor.crimson,
+                        backgroundColor: MyColor.indigo,
                         fixedSize: Size.fromHeight(50),
                       ),
                       onPressed: () {
