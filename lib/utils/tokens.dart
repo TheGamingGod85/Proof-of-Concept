@@ -45,8 +45,8 @@ class GEOLocationManager {
     } else {
       position = await Geolocator.getCurrentPosition(
           desiredAccuracy: LocationAccuracy.best);
-      print("Lattitude: " + position.latitude.toString());
-      print("Longitude: " + position.longitude.toString());
+      print("Latitude: ${position.latitude}");
+      print("Longitude: ${position.longitude}");
     }
   }
 }

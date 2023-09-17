@@ -23,41 +23,39 @@ class _StartChatState extends State<StartChat> {
         title: Text("Proof of Concept"),
         centerTitle: true,
       ),
-      body: Container(
-        child: SafeArea(
-          child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.message,
-                    color: MyColor.indigo,
-                    size: 150,
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(top: 15, bottom: 50),
-                    child: Text(
-                        isShown.FirstLogin
-                            ? "Glad To Meet You!"
-                            : "Welcome Back! We Missed You!",
-                        style: TextStyle(fontSize: 26, color: Colors.white)),
-                  ),
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: MyColor.indigo,
-                        fixedSize: Size.fromHeight(50),
-                      ),
-                      onPressed: () {
-                        print(FCMTokenManager.fcmToken);
-                        print(DeviceIDManager().getDeviceId());
-                        GEOLocationManager().getGEOLocation();
-                        Navigator.push(context, PageTransition(child: ChatPage(), type: PageTransitionType.fade, duration: 500.ms),);
-                      },
-                      child: Text("Start Chatting", style: TextStyle(fontSize: 24),)
-                  ),
-                ],
-              )
-          ),
+      body: SafeArea(
+        child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.message,
+                  color: MyColor.indigo,
+                  size: 150,
+                ),
+                Container(
+                  padding: EdgeInsets.only(top: 15, bottom: 50),
+                  child: Text(
+                      isShown.FirstLogin
+                          ? "Glad To Meet You!"
+                          : "Welcome Back! We Missed You!",
+                      style: TextStyle(fontSize: 26, color: Colors.white)),
+                ),
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: MyColor.indigo,
+                      fixedSize: Size.fromHeight(50),
+                    ),
+                    onPressed: () {
+                      print(FCMTokenManager.fcmToken);
+                      print(DeviceIDManager().getDeviceId());
+                      GEOLocationManager().getGEOLocation();
+                      Navigator.push(context, PageTransition(child: ChatPage(), type: PageTransitionType.fade, duration: 500.ms),);
+                    },
+                    child: Text("Start Chatting", style: TextStyle(fontSize: 24),)
+                ),
+              ],
+            )
         ),
       ),
     );
