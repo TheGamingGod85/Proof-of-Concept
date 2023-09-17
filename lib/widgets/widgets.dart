@@ -1,9 +1,12 @@
 import 'dart:async';
+import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:page_transition/page_transition.dart';
 
 import 'package:poc/screens/startchat.dart';
+import 'package:poc/widgets/theme.dart';
 
 class ReusableCountdownTimer extends StatefulWidget {
   final int initialSeconds;
@@ -83,27 +86,37 @@ class _ReusableCountdownTimerState extends State<ReusableCountdownTimer> {
 void leaveChatDialog(BuildContext context) {
   showDialog(
     context: context,
-    builder: (context) => AlertDialog(
-      title: Text("Leave Chat?"),
-      content: Text(
-          "Do you wish to exit the chat? If you haven't exchanged any information with this user, the chances of encountering them again are quite slim."),
-      actions: [
-        TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text("Cancel")),
-        TextButton(
-            onPressed: () {
-              Navigator.pushAndRemoveUntil(
-                  context,
-                  PageTransition(
-                      child: StartChat(),
-                      type: PageTransitionType.fade,
-                      duration: 500.milliseconds), (route) => false);
-            },
-            child: Text("Leave"))
-      ],
+    builder: (context) => BackdropFilter(
+      filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+      child: AlertDialog(
+        title: Text("Leave Chat?", style: TextStyle(fontWeight: FontWeight.bold),),
+        content: Text(
+            "Do you wish to exit the chat? \nIf you haven't exchanged any info with this user, the chances of encountering them again are quite slim.", textAlign: TextAlign.justify, ),
+        actions: [
+          TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              style: TextButton.styleFrom(foregroundColor: MyColor.indigo),
+              child: Text("Cancel")),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      PageTransition(
+                          child: StartChat(),
+                          type: PageTransitionType.fade,
+                          duration: 500.milliseconds), (route) => false);
+                },
+                style: ElevatedButton.styleFrom(backgroundColor: MyColor.indigo),
+                child: Text("Leave")),
+          )
+        ],
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+      ),
     ),
   );
 }
+
