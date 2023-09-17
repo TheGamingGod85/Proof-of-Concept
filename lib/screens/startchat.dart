@@ -45,15 +45,24 @@ class _StartChatState extends State<StartChat> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: MyColor.indigo,
                       fixedSize: Size.fromHeight(50),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
                     ),
                     onPressed: () {
                       print(FCMTokenManager.fcmToken);
                       print(DeviceIDManager().getDeviceId());
                       GEOLocationManager().getGEOLocation();
-                      Navigator.push(context, PageTransition(child: ChatPage(), type: PageTransitionType.fade, duration: 500.ms),);
+                      Navigator.push(
+                        context,
+                        PageTransition(
+                            child: ChatPage(),
+                            type: PageTransitionType.fade,
+                            duration: 500.ms),
+                      );
                     },
-                    child: Text("Start Chatting", style: TextStyle(fontSize: 24),)
-                ),
+                    child: Text(
+                      "Start Chatting",
+                      style: TextStyle(fontSize: 24),
+                    )),
               ],
             )
         ),
