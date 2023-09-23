@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:poc/screens/chat.dart';
-import 'package:poc/widgets/theme.dart';
-import 'package:poc/utils/tokens.dart';
 import 'package:poc/utils/global.dart';
+import 'package:poc/utils/tokens.dart';
+import 'package:poc/widgets/theme.dart';
 
 class StartChat extends StatefulWidget {
   const StartChat({super.key});
@@ -49,7 +49,8 @@ class _StartChatState extends State<StartChat> {
                         borderRadius: BorderRadius.circular(15))),
                 onPressed: () {
                   print(FCMTokenManager.fcmToken);
-                  print(DeviceIDManager().getDeviceId());
+                  print("FCM Token :: ${FCMTokenManager.fcmToken}");
+                  print("Device Id :: ${DeviceIDManager().getDeviceId()}");
                   GEOLocationManager().getGEOLocation();
                   Navigator.push(
                     context,

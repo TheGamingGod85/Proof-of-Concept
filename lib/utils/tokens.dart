@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:geolocator/geolocator.dart';
@@ -16,18 +17,14 @@ class FCMTokenManager {
 class DeviceIDManager {
   Future<String?> getDeviceId() async {
     DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-    String? deviceId;
 
     if (Platform.isAndroid) {
       AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-      deviceId = androidInfo.id; // Unique Android device ID
+      return androidInfo.id; // Unique Android device ID
     } else if (Platform.isIOS) {
       IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
-      deviceId = iosInfo.identifierForVendor; // Unique iOS device ID
+      return iosInfo.identifierForVendor; // Unique iOS device ID
     }
-
-    print("Device ID: $deviceId");
-    return deviceId;
   }
 }
 
