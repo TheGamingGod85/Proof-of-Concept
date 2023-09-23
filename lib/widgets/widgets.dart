@@ -40,7 +40,8 @@ class _ReusableCountdownTimerState extends State<ReusableCountdownTimer> {
         } else {
           _timer.cancel(); // Stop the timer when it reaches 0
           if (widget.onTimerComplete != null) {
-            widget.onTimerComplete!(); // Call the callback function when the timer completes
+            widget
+                .onTimerComplete!(); // Call the callback function when the timer completes
           }
         }
       });
@@ -82,16 +83,20 @@ class _ReusableCountdownTimerState extends State<ReusableCountdownTimer> {
   }
 }
 
-
 void leaveChatDialog(BuildContext context) {
   showDialog(
     context: context,
     builder: (context) => BackdropFilter(
       filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
       child: AlertDialog(
-        title: Text("Leave Chat?", style: TextStyle(fontWeight: FontWeight.bold),),
+        title: Text(
+          "Leave Chat?",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         content: Text(
-            "Do you wish to exit the chat? \nIf you haven't exchanged any info with this user, the chances of encountering them again are quite slim.", textAlign: TextAlign.justify, ),
+          "Do you wish to exit the chat? \nIf you haven't exchanged any info with this user, the chances of encountering them again are quite slim.",
+          textAlign: TextAlign.justify,
+        ),
         actions: [
           TextButton(
               onPressed: () {
@@ -108,9 +113,11 @@ void leaveChatDialog(BuildContext context) {
                       PageTransition(
                           child: StartChat(),
                           type: PageTransitionType.fade,
-                          duration: 500.milliseconds), (route) => false);
+                          duration: 500.milliseconds),
+                      (route) => false);
                 },
-                style: ElevatedButton.styleFrom(backgroundColor: MyColor.indigo),
+                style:
+                    ElevatedButton.styleFrom(backgroundColor: MyColor.indigo),
                 child: Text("Leave")),
           )
         ],
@@ -119,4 +126,3 @@ void leaveChatDialog(BuildContext context) {
     ),
   );
 }
-

@@ -14,7 +14,6 @@ class FCMTokenManager {
 }
 
 class DeviceIDManager {
-
   Future<String?> getDeviceId() async {
     DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
     String? deviceId;

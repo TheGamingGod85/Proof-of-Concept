@@ -38,16 +38,22 @@ class _ChatPageState extends State<ChatPage> {
           ),
           centerTitle: false,
           actions: [
-            if (_longPressedMessage != null) // Show the copy button when a message is long-pressed
+            if (_longPressedMessage !=
+                null) // Show the copy button when a message is long-pressed
               IconButton(
                 icon: Icon(Icons.copy_rounded),
                 onPressed: () {
                   _copyMessageToClipboard(_longPressedMessage!.text);
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Message copied to clipboard'),duration: 300.milliseconds, backgroundColor: MyColor.black,),
+                    SnackBar(
+                      content: Text('Message copied to clipboard'),
+                      duration: 300.milliseconds,
+                      backgroundColor: MyColor.black,
+                    ),
                   );
                   setState(() {
-                    _longPressedMessage = null; // Reset the long-pressed message
+                    _longPressedMessage =
+                        null; // Reset the long-pressed message
                   });
                 },
               ),
@@ -71,7 +77,8 @@ class _ChatPageState extends State<ChatPage> {
             child: Column(
               children: <Widget>[
                 // Add a widget to display the current date message
-                if (messages.isEmpty) // Show it only if there are no messages yet
+                if (messages
+                    .isEmpty) // Show it only if there are no messages yet
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
@@ -153,7 +160,7 @@ class Message {
   final DateTime timestamp;
   Message(
       {required this.text,
-        required this.isSender,
-        required this.color,
-        required this.timestamp});
+      required this.isSender,
+      required this.color,
+      required this.timestamp});
 }

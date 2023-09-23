@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:intro_screen_onboarding_flutter/intro_app.dart';
@@ -65,5 +64,4 @@ class _OnboardingState extends State<Onboarding> {
       },
     );
   }
-
 }
