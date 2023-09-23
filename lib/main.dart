@@ -1,18 +1,23 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:poc/screens/splash_screen.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:poc/utils/tokens.dart';
+
 import 'firebase_options.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  await FCMTokenManager.initializeFCMToken();
-  GEOLocationManager().getGEOLocation();
-  await DeviceIDManager().getDeviceId();
-  runApp(const MyApp());
+  try {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    await FCMTokenManager.initializeFCMToken();
+    GEOLocationManager().getGEOLocation();
+    DeviceIDManager().getDeviceId();
+    runApp(const MyApp());
+  } catch (e) {
+    print(e);
+  }
 }
 
 class MyApp extends StatefulWidget {
