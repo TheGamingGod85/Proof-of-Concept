@@ -10,7 +10,7 @@ class FCMTokenManager {
   static Future<void> initializeFCMToken() async {
     FirebaseMessaging messaging = FirebaseMessaging.instance;
     fcmToken = await messaging.getToken();
-    print("FCM Token: $fcmToken");
+    print("FCM Token:: $fcmToken");
   }
 }
 
@@ -41,8 +41,8 @@ class GEOLocationManager {
     } else {
       position = await Geolocator.getCurrentPosition(
           desiredAccuracy: LocationAccuracy.best);
-      print("Latitude: ${position.latitude}");
-      print("Longitude: ${position.longitude}");
+      print("Latitude:: ${position.latitude}");
+      print("Longitude:: ${position.longitude}");
     }
   }
 }
