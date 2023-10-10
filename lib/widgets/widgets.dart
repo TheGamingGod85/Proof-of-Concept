@@ -1,10 +1,9 @@
 import 'dart:async';
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:page_transition/page_transition.dart';
-
 import 'package:poc/screens/startchat.dart';
 import 'package:poc/widgets/theme.dart';
 
@@ -122,6 +121,41 @@ void leaveChatDialog(BuildContext context) {
           )
         ],
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+      ),
+    ),
+  );
+}
+
+void internetDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (context) => BackdropFilter(
+      filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+      child: AlertDialog(
+        title: Text(
+          "No Internet Connection",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        content: Text(
+          "This App Requires An Internet Connection to Function, To Proceed Furthur, Please Connect To An Internet Connection!",
+          textAlign: TextAlign.justify,
+        ),
+        actions: [
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                  onPressed: () async {
+                    Navigator.pop(context, "cancel");
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: MyColor.indigo),
+                  child: Text("OK")),
+            ),
+          )
+        ],
+        shape:
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
       ),
     ),
   );

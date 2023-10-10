@@ -6,15 +6,16 @@ import 'package:poc/utils/tokens.dart';
 import 'firebase_options.dart';
 
 void main() async {
+  GEOLocationManager().getGEOLocation();
+  DeviceIDManager().getDeviceId();
   try {
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
     await FCMTokenManager.initializeFCMToken();
-    GEOLocationManager().getGEOLocation();
-    DeviceIDManager().getDeviceId();
     runApp(const MyApp());
+    await initInternetStatusListener();
   } catch (e) {
     print(e);
   }
@@ -28,6 +29,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -14,6 +14,7 @@ class StartChat extends StatefulWidget {
 }
 
 class _StartChatState extends State<StartChat> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,4 +70,7 @@ class _StartChatState extends State<StartChat> {
       ),
     );
   }
+
+
+
 }
